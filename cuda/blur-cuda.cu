@@ -104,7 +104,7 @@ int blur(char* input, char *output, int kernel) {
 
   h_bitmap_metadata = (bitmap_metadata*) malloc(sizeof(bitmap_metadata));
 
-  threads = 20;
+  threads = 1000;
   threadsPerBlock = threads / blocksPerGrid;
 
   h_bitmap_metadata->width = hp->width;
