@@ -72,14 +72,14 @@ __global__ void d_blur(unsigned char* d_data, bitmap_metadata* d_bitmap_metadata
     }
 }
 
-int blur(char* input, char *output, int kernel) {
+int blur(char* input, char *output, int kernel, int threads) {
   int dev = 0;
   cudaError_t error = cudaSuccess;
   cudaSetDevice(dev);
   cudaDeviceProp deviceProp;
   cudaGetDeviceProperties(&deviceProp, dev);
 
-  int threadsPerBlock, threads;
+  int threadsPerBlock;
   int blocksPerGrid = deviceProp.multiProcessorCount;
 
   FILE *fp, *out;
@@ -104,7 +104,6 @@ int blur(char* input, char *output, int kernel) {
 
   h_bitmap_metadata = (bitmap_metadata*) malloc(sizeof(bitmap_metadata));
 
-  threads = 1000;
   threadsPerBlock = threads / blocksPerGrid;
 
   h_bitmap_metadata->width = hp->width;
@@ -158,6 +157,7 @@ int main(int argc, char **argv) {
   char* original = argv[1];
   char* modified = argv[2];
   int kernel =  atoi(argv[3]);
+  int threads = atoi(argv[4]);
 
   if (kernel < 3 || kernel > 15)
     printf("Invalid kernel value. Must be between [3, 15]");
@@ -169,7 +169,7 @@ int main(int argc, char **argv) {
       return 1;
     }
 
-    blur(original, modified, kernel);
+    blur(original, modified, kernel, threads);
 
     r = clock_gettime(CLOCK_MONOTONIC, &tend);
     if (r == -1) {
