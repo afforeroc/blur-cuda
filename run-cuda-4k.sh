@@ -17,7 +17,6 @@ done
 echo '╔═══════════════════════════════╗'
 echo '║ Processing 4k image           ║'
 echo '╚═══════════════════════════════╝'
-echo "K: Kernel, ms: Milisenconds"
 echo "K s h"
 echo '═════════════════════════════════'
 echo "K s h" > logs/4k.csv
@@ -28,5 +27,3 @@ threads=5120; execute_blur_effect
 threads=6400; execute_blur_effect
 threads=7680; execute_blur_effect
 echo '' # Break line
-
-
