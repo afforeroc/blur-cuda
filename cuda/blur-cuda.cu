@@ -179,6 +179,6 @@ int main(int argc, char **argv) {
 
     double delta = time_spec_seconds(&tend) - time_spec_seconds(&tstart);
 
-    printf("%d\t%.4f\n", kernel, delta);
+    printf("%d %.4f %d\n", kernel, delta, threads);
   }
 }

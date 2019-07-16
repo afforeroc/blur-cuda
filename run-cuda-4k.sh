@@ -18,9 +18,9 @@ echo '╔═══════════════════════�
 echo '║ Processing 4k image           ║'
 echo '╚═══════════════════════════════╝'
 echo "K: Kernel, ms: Milisenconds"
-echo "K\ts"
+echo "K s h"
 echo '═════════════════════════════════'
-echo "K\ts" > logs/4k.csv
+echo "K s h" > logs/4k.csv
 threads=1280; execute_blur_effect
 threads=2560; execute_blur_effect
 threads=3840; execute_blur_effect
