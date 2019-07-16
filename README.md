@@ -7,6 +7,3 @@
 
 ## Google Colab Notebook
 https://colab.research.google.com/drive/1GQcDln2Ko5FYjz7Dx_Pn51HmVP20xxqY
-
-## Google Sheets
-https://docs.google.com/spreadsheets/d/1ufPDSHjIKkZFHGX0dq9pV3Z59haIdcECGqHZmyvdjnI/edit?usp=sharing
